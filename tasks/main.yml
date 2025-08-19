@@ -1,0 +1,15 @@
+---
+# tasks file for first
+
+- name: install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: present
+    update_cache: yes
+- name: copy file with owner and permision
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: '0644'
